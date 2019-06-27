@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package practicapoobladix;
+package PracticaHerencia;
 
 /**
  *
  * @author ist loja
  */
-public class PracticaPOObladix {
-
-   
+public class Circulo extends FiguraTridimensional{
+    
 }

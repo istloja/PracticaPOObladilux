@@ -24,6 +24,7 @@ public class EstaticosyDinamicos {
      
     public void despedir(){ // Este es un metodo No Estatico
         System.out.println("Chao");
+        
     }
     
 }
