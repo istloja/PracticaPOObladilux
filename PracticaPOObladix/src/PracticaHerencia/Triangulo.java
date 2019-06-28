@@ -9,6 +9,16 @@ package PracticaHerencia;
  *
  * @author ist loja
  */
-public class Triangulo extends FiguraBidimensional{
+public class Triangulo extends FiguraBidimensional{//
+    public double calcularPerimetro(double lado1,double lado2, double lado3){
+        return lado1+lado2+lado3;
+    }
+    public double calcularArea(double base, double altura){
+        return (base*altura);
+        //
+    }
+
     
-}
+    }
+    
+
