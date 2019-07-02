@@ -65,12 +65,53 @@ public class Ejecutar {
                 System.out.println("este es area"+areacuadrado+" este es el perimetro"+perimetrocuadrado);
                 
                 break;// para detener
-            default:// por si no ingresa ningun valor correcto
-                System.out.println("ingrese un numero correct");
+            case 4:
+                System.out.println("ingrese la longitud del cubo");
+                 double cubo=entrada.nextDouble();
+                 System.out.println("ingrese el volumen");
+                 double volumen=entrada.nextDouble();
+                Cubo objeto4 = new Cubo();
+                double calcularlongitud=objeto4.calcularlongitudcubo(cubo);
+                        
+                double calcularvolumencubo=objeto4.calcularvolumencubo(volumen);
+                System.out.println("longitud"+calcularlongitud+"volumen"+calcularvolumencubo);
                 break;
+            case 5:
+                System.out.println("ingrese el radio para la esfera");
+                double radioes=entrada.nextDouble();
+                
+                
+               
+                 Esfera objeto5 = new Esfera();
+                 
+                double calcularradio=objeto5.calcularRadio(radioes);
+                double calcularvolumen=objeto5.calcularVolumen(radioes);
+                System.out.println("radio"+calcularradio+"volumen"+calcularvolumen);
+                break;
+           
+               
+            case 6:
+                System.out.println("ingrese valor para el area");
+                double ladotetra=entrada.nextDouble();
+                System.out.println("ingrese la arista");
+                double aristas=entrada.nextDouble();
+                
+                Tetaedro objeto6=new Tetaedro();
+                
+                double calcularaereatetra=objeto6.calcularAREA(ladotetra);
+                double calcularvolumentetra=objeto6.calcularVOLUMEN(aristas);
+                System.out.println("areatetraedro"+calcularaereatetra+"volumen del tetraedro"+calcularvolumentetra);
+                break;
+                
+                 default:   //no escojemos nimgun valor 
+                System.out.println("ingrese un numero correcto");
+                     break;
+                
+                
         }
-        
         
     }
     
 }
+    
+           

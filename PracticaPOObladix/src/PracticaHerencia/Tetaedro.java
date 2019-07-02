@@ -10,5 +10,12 @@ package PracticaHerencia;
  * @author ist loja
  */
 public class Tetaedro extends FiguraTridimensional{
-    
+   public double calcularAREA(double ladotetra) {
+        return Math.pow(Math.sqrt(2) * ladotetra, 2);
+
+    }
+
+    public double calcularVOLUMEN(double aristas) {
+        return Math.pow(Math.sqrt(2) / 12 * aristas, 3);
+    }
 }
