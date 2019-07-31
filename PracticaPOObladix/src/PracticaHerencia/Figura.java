@@ -12,8 +12,9 @@ package PracticaHerencia;
 public class Figura {
     private double area;
     private double perimetro;
-    // generate insert code geter anseter
-
+  
+    // generate insert code getter and  setter
+ 
     public double getArea() {
         return area;
     }
