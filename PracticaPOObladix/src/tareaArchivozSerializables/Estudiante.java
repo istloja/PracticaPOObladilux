@@ -16,7 +16,7 @@ public class Estudiante implements Serializable {
     private String apellido;
     private int edad;
     private String direccion;
-    private Materia materia;
+    private Materia materia;//hhh
 
     public Estudiante() {
     }
