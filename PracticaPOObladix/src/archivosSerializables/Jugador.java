@@ -12,6 +12,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import sun.security.util.Length;
 
 /**
  *
@@ -156,60 +157,85 @@ public class Jugador implements Serializable {
         }
     }
 
-    public double porcentajeAcierto(Jugador jugadorpro) {
-        return (jugadorpro.getNumeroGoles()+jugadorpro.getAsistencias())/jugadorpro.getFallos_gol();
+    public int nombreMascaracteres(Jugador jugador) {
+        return jugador.getNombre().length() + jugador.getApellido().length();
 
     }
-     public double porcentajeEfectividad(Jugador jugadorfec){
-         return (jugadorfec.getPases_completados()/jugadorfec.getPerdidas_balon());
-     }
-      public double porcentajeEficenciaJugagor(Jugador jugadorefici){
-          return (porcentajeAcierto(jugadorefici)+porcentajeEfectividad(jugadorefici)+jugadorefici.getKm_recorridos());
-      }
-      
-      
-      
-       public Jugador mayorEfectividad(List<Jugador> lista) {
-           Jugador mayorefectividad=lista.get(0);
-           for (Jugador jugador : lista) {
-               if (porcentajeEfectividad(jugador)>porcentajeEfectividad(mayorefectividad)){
-                   mayorefectividad=jugador;
-               
-           }
-           }
-       
-       return mayorefectividad;
-       }
-       
-       
-        public Jugador mayorEficiencia(List<Jugador> lista) {
-           Jugador mayorAcierto=lista.get(0);
-           for (Jugador jugador : lista) {
-               if (porcentajeEficenciaJugagor(jugador)>porcentajeEficenciaJugagor(mayorAcierto)){
-                  mayorAcierto=jugador;
-               
-           }
-           }
-       
-       return mayorAcierto;
-       }
-        
-        
-        public Jugador mayorAcierto(List<Jugador> lista) {
-           Jugador mayoreAcierto=lista.get(0);
-           for (Jugador jugador : lista) {
-               if (porcentajeAcierto(jugador)>porcentajeAcierto(mayoreAcierto)){
-                   mayoreAcierto=jugador;
-               
-           }
-           }
-       
-       return mayoreAcierto;
-       }
-       
-       
-      
-    
+
+    public Jugador jugadorMascaracteres(List<Jugador> lista) {
+        Jugador mayorcaracteres = lista.get(0);
+        for (Jugador jugador : lista) {
+            if (nombreMascaracteres(jugador) > nombreMascaracteres(mayorcaracteres)) {
+
+                mayorcaracteres = jugador;
+
+            }
+
+        }
+        return mayorcaracteres;
+    }
+
+    public Jugador jugadorMenoscaracteres(List<Jugador> lista) {
+        Jugador mayorcaracteres = lista.get(0);
+        for (Jugador jugador : lista) {
+            if (nombreMascaracteres(jugador) < nombreMascaracteres(mayorcaracteres)) {
+
+                mayorcaracteres = jugador;
+
+            }
+
+        }
+        return mayorcaracteres;
+    }
+
+    public double porcentajeAcierto(Jugador jugadorpro) {
+        return (jugadorpro.getNumeroGoles() + jugadorpro.getAsistencias()) / jugadorpro.getFallos_gol();
+
+    }
+
+    public double porcentajeEfectividad(Jugador jugadorfec) {
+        return (jugadorfec.getPases_completados() / jugadorfec.getPerdidas_balon());
+    }
+
+    public double porcentajeEficenciaJugagor(Jugador jugadorefici) {
+        return (porcentajeAcierto(jugadorefici) + porcentajeEfectividad(jugadorefici) + jugadorefici.getKm_recorridos());
+    }
+
+    public Jugador mayorEfectividad(List<Jugador> lista) {
+        Jugador mayorefectividad = lista.get(0);
+        for (Jugador jugador : lista) {
+            if (porcentajeEfectividad(jugador) > porcentajeEfectividad(mayorefectividad)) {
+                mayorefectividad = jugador;
+
+            }
+        }
+
+        return mayorefectividad;
+    }
+
+    public Jugador mayorEficiencia(List<Jugador> lista) {
+        Jugador mayorAcierto = lista.get(0);
+        for (Jugador jugador : lista) {
+            if (porcentajeEficenciaJugagor(jugador) > porcentajeEficenciaJugagor(mayorAcierto)) {
+                mayorAcierto = jugador;
+
+            }
+        }
+
+        return mayorAcierto;
+    }
+
+    public Jugador mayorAcierto(List<Jugador> lista) {
+        Jugador mayoreAcierto = lista.get(0);
+        for (Jugador jugador : lista) {
+            if (porcentajeAcierto(jugador) > porcentajeAcierto(mayoreAcierto)) {
+                mayoreAcierto = jugador;
+
+            }
+        }
+
+        return mayoreAcierto;
+    }
 
     public int edadMayor(List<Jugador> lista) {
         int edadmax = lista.get(0).getEdad();
@@ -299,19 +325,37 @@ public class Jugador implements Serializable {
 
     }
 
+//    public Jugador equipoMasjugadores(List<Jugador> lista){
+//        
+//        
+//    }
+
     public static void main(String[] args) {
         Jugador objeto = new Jugador();
         //(int perdidas_balon, int asistencias, double km_recorridos, int pases_completados, int fallos_gol, String nombre, String apellido, int edad, int numeroGoles, int añoDebut, Equipo equipo)
-        Jugador j1 = new Jugador(6, 3, 4.4, 39, 3, "cristiano", "Ronaldo", 33, 520, 2005, new Equipo("juventus", 20, "Turin"));
+        Jugador j1 = new Jugador(6, 3, 4.4, 39, 3, "Cristiano", "Ronaldo", 33, 520, 2005, new Equipo("juventus", 20, "Turin"));
         Jugador j2 = new Jugador(8, 5, 5.6, 56, 2, "Lionel", "Messi", 31, 600, 2001, new Equipo("Barcelona", 30, "Barcelona"));
-        Jugador j3 = new Jugador(8, 5, 7.8, 78, 4, "Neymar", "Jr", 28, 200, 2011, new Equipo("PSG", 10, "Paris"));
-        Jugador j4 = new Jugador(8, 3, 6.7, 67, 3, "Eden", "Hazard", 27, 1590, 2010, new Equipo("Real Madrid", 40, "Madrid"));
+        Jugador j3 = new Jugador(8, 5, 7.8, 78, 4, "Neimarar", "Jr", 28, 200, 2011, new Equipo("PSG", 10, "Paris"));
+        Jugador j4 = new Jugador(8, 3, 6.7, 67, 3, "eden", "Hazgut", 27, 1590, 2010, new Equipo("Real Madrid", 40, "Madrid"));
+        Jugador j5 = new Jugador(8, 3, 6.7, 67, 3, "Fabricio", "Colomb", 27, 1590, 2010, new Equipo("Juventus", 40, "Madrid"));
+        Jugador j6 = new Jugador(8, 3, 6.7, 67, 3, "Manuela", "Putin", 27, 1590, 2010, new Equipo("Real Madrid", 40, "Barcelona"));
+        Jugador j7 = new Jugador(8, 3, 6.7, 67, 3, "Kevin", "man", 27, 1590, 2010, new Equipo("PSG", 40, "Madrid"));
+        Jugador j8 = new Jugador(8, 3, 6.7, 67, 3, "Angel", "Hazgut", 27, 1590, 2010, new Equipo("Real Madrid", 40, "Madrid"));
+        Jugador j9 = new Jugador(8, 3, 6.7, 67, 3, "Arnol", "Mar", 27, 1590, 2010, new Equipo("Barcelona", 40, "Madrid"));
+        Jugador j10 = new Jugador(8, 3, 6.7, 67, 3, "Vicente", "Roca", 27, 1590, 2010, new Equipo("Juventus", 40, "Madrid"));
 
         List<Jugador> Lista = new ArrayList<>();
+
         Lista.add(j1);
         Lista.add(j2);
         Lista.add(j3);
         Lista.add(j4);
+        Lista.add(j5);
+        Lista.add(j6);
+        Lista.add(j7);
+        Lista.add(j8);
+        Lista.add(j9);
+        Lista.add(j10);
         int a = Lista.size();//guardo en la variable a esta me permite saber el tamaño de lista (.size())
         System.out.println(a);
         objeto.escribirLista("C:\\Users\\ist loja\\Desktop\\ejemplo2.txt", Lista);
@@ -323,10 +367,12 @@ public class Jugador implements Serializable {
             System.out.println("el jugador con menor edad es " + objeto.edadmenorObjeto(b).getNombre());
             System.out.println("el juador que mas pronto debuto es " + " " + objeto.debutoP(b).getNombre() + " y su año de debut" + " " + objeto.debutoP(b).getAñoDebut());
             System.out.println("el equipo con mas titulos es;" + " " + objeto.titulos(b).getEquipo().getNombre() + " con; " + " " + objeto.titulos(b).getEquipo().getNumerotitulos() + " " + "titulos");
-            System.out.println("EL JUGADOR MAS eficiencia ES "+objeto.mayorEficiencia(b).getNombre());
-            System.out.println("EL JUGADOR MAS acierto ES"+objeto.mayorAcierto(b).getNombre());
-            System.out.println("EL JUGADOR MAS efectividad ES"+objeto.mayorEfectividad(b).getNombre());
-            
+            System.out.println("EL JUGADOR MAS eficiencia ES " + objeto.mayorEficiencia(b).getNombre());
+            System.out.println("EL JUGADOR MAS acierto ES" + objeto.mayorAcierto(b).getNombre());
+            System.out.println("EL JUGADOR MAS efectividad ES" + objeto.mayorEfectividad(b).getNombre());
+            System.out.println("jugador con menos caracteres " + objeto.jugadorMenoscaracteres(Lista).getNombre() + " " + objeto.jugadorMenoscaracteres(Lista).getApellido());
+            System.out.println("jugador con mas caracteres " + objeto.jugadorMascaracteres(Lista).getNombre() + " " + objeto.jugadorMascaracteres(Lista).getApellido());
+
         }
     }
 }
