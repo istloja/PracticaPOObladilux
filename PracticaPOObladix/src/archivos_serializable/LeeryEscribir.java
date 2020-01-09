@@ -98,8 +98,8 @@ public class LeeryEscribir {
         Persona p4 = new Persona("luzi", "kawats", 98234, 34, new Mascota("rebeca", 3, 4));
         Persona p5 = new Persona("kevin", "tapia", 982369, 17, new Mascota("akamaru", 3, 4));
         Persona p6 = new Persona("jhoel", "kawai", 982369, 55, new Mascota("vicha1", 3, 4));
-        List<Persona> Lista = new ArrayList<>();//creamos la lista para guarar objetos
-        //una vez que creasmos la lista ponemos los objetos dentro de ella
+        List<Persona> Lista = new ArrayList<>();
+        
 
         Lista.add(p2);
         Lista.add(p4);
@@ -108,17 +108,7 @@ public class LeeryEscribir {
         Lista.add(p6);
         int a = Lista.size();
         System.out.println(a);
-//       for (Persona persona : Lista) {// imporimo los nombres de la lista
-//            System.out.println(persona.getNombre());
-//            
-//            
-//        }
-//        System.out.println(Lista.size());
-//        objeto.escribirLista("C:\\Users\\ist loja\\Desktop\\ejemplo.txt", Lista);
 
-       // objeto.escribirObjeto("C:\\Users\\USUARIO\\Desktop\\ejemplo.txt", p2);
-        //objeto.leerArchivo("C:\\Users\\ist loja\\Desktop\\\\ejemplo.txt");
-        //objeto.leerLista("C:\\Users\\USUARIO\\Desktop\\ejemplo.txt");
         List<Persona> b=objeto.leerPersonas("C:\\Users\\USUARIO\\Desktop\\ejemplo.txt");
         for (Persona persona : b) {
             System.out.println("edades "+ persona.getEdad());
