@@ -381,7 +381,7 @@ System.exit(0);
                 new interfaces().setVisible(true);
             }
         });
-    }
+    }///
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel correo;
