@@ -18,15 +18,6 @@ public class NUEVO {
      */
     public static void main(String[] args) {
         VentanaPrincipal va= new VentanaPrincipal();
-        // TODO code application logic here
-        
-        // deber agrgar el 
-       // JComboBox
-       //opciones
-//con el jcombo box 
-//        dar a elegir para adivinar el dia del mes 
-//              año
-
-//    
+   
 }
 }

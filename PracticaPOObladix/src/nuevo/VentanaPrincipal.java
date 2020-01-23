@@ -13,7 +13,6 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
-import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -28,15 +27,15 @@ import javax.swing.JTextField;
  */
 public class VentanaPrincipal extends JFrame {
 
-    JLabel l = new JLabel("que numero de semana estamos?");
+    JLabel l = new JLabel("Elija la opcion a adivinar?");
     JTextField t = new JTextField(15);
-    JButton b = new JButton("chequear");
+    JButton b = new JButton("verificar");
     JPanel p = new JPanel();
     VentanaResulatdo r;
     JComboBox combo = new JComboBox();
 
     public VentanaPrincipal() {
-        super("ventana principal");
+        super("Adivina Adivinador");
         setSize(600, 200);
         setLocation(300, 300);
         setVisible(true);
@@ -61,14 +60,19 @@ public class VentanaPrincipal extends JFrame {
         c.gridy = 2;
 
         p.add(b, c);
+      
+       
+        
+      
+       
 
-        String[] pa={"año","mes","dia","hora"
-        };
+        String[] pa={"año","mes","dia","hora"};
       
        
         combo = new JComboBox(pa);
         combo.setPreferredSize(new Dimension(200, 25));
         p.add(combo);
+        combo.setForeground(Color.blue);
     
 
         b.addActionListener(new ActionListener() {
@@ -112,13 +116,13 @@ public class VentanaPrincipal extends JFrame {
             int num = Integer.parseInt(t.getText());
 
             if (num == c) {
-                b.setEnabled(false);
+               // b.setEnabled(false);
                 r = new VentanaResulatdo();
                 r.lr.setText("CORRECTO, GANASTE");
                 r.lr.setForeground(Color.green);
                 r.br.setText("terminar");
             } else {
-                b.setEnabled(false);
+               // b.setEnabled(false);
                 r = new VentanaResulatdo();
                 r.lr.setText("INCORRECTO, VUELVE A INTENTAR");
                 r.lr.setForeground(Color.red);
