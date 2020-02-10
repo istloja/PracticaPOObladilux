@@ -24,7 +24,7 @@ public class Inicio extends JFrame {
     JMenuBar bara = new JMenuBar();//es la barra
     JMenu menu1;
     JMenu menu2;
-    JMenuItem descuento, misalir;
+    JMenuItem descuento, misalir,internal;
 
     public Inicio() {
         f.setTitle("INICIO");
@@ -49,6 +49,10 @@ public class Inicio extends JFrame {
         misalir = new JMenuItem("salir");
         misalir.addActionListener(new OyenteInicio());
         menu1.add(misalir);
+        
+        internal= new JMenuItem("internal");
+            internal.addActionListener(new OyenteInicio());
+        menu1.add(internal);
 
     }
 
@@ -61,6 +65,10 @@ public class Inicio extends JFrame {
             if (e.getSource() == descuento) {
                 new Panel();
             }
+            if (e.getSource() == internal) {
+                new  PruebaInternalFrame();
+            }
+
 
         }
 
