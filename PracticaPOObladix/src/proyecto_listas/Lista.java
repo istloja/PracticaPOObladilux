@@ -5,9 +5,6 @@
  */
 package proyecto_listas;
 
-
-
-
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -20,11 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import java.util.ArrayList;
-import static java.util.Arrays.equals;
-import static java.util.Arrays.equals;
+
 import javax.swing.JButton;
-import javax.swing.plaf.basic.BasicListUI;
 
 /**
  *
@@ -41,85 +35,77 @@ public class Lista extends JFrame {
 
     JTextArea area = new JTextArea();
 
-
-    //JLabel imagen = new JLabel();
-    ImageIcon imagen1 = new ImageIcon("C:\\Users\\USUARIO\\Pictures\\jenny.jpg");
-    ImageIcon imagen2 = new ImageIcon("C:\\Carpeta Img\\imagen2.jpg");
-    ImageIcon imagen3 = new ImageIcon("C:\\Carpeta Img\\imagen1.jpg");
+    JLabel imagen = new JLabel();
 
     JButton B;
 
     public Lista() {
-        super("Artistas");
+        super("Frutas");
         setSize(600, 500);
         setLocation(100, 100);
         componentes();
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //imagen.setIcon(new ImageIcon("C:\\Users\\ISTLOJA_02\\Pictures\\i.jpg"));
     }
 
     public void componentes() {
         getContentPane().add(panel);
-        panel.setBackground(Color.white);
+        panel.setBackground(Color.pink);
         panel.setLayout(new GridBagLayout());
         GridBagConstraints a = new GridBagConstraints();
+        a.insets = new Insets(15, 10, 15, 10);
         a.gridx = 0;
         a.gridy = 0;
         panel.add(panel1, a);
         panel1.setLayout(new GridBagLayout());
-        panel1.setBackground(Color.white);
+    
         GridBagConstraints b = new GridBagConstraints();
         b.gridx = 0;
         b.gridy = 0;
+        b.insets = new Insets(5, 5, 5, 5);
+     
+        String artist[] = {"melon", "naranja", "uva"};
 
-        //String artist
-        String artist[] = {"marc anthony", "ricky martin", "shakira"};
-
-        //create list 
+     
+    
         lista = new JList(artist);
 
-        //set a selected index 
-        //add list to panel 
-        
-        
-        panel1.add(lista, b);
-        
        
-        
+        panel1.add(lista, b);
+        panel1.setBackground(Color.BLACK);
 
-        a.gridx = 2;
+        a.gridx = 5;
         a.gridy = 0;
 
         panel.add(panel2, a);
         panel2.setLayout(new GridBagLayout());
-        panel2.setBackground(Color.LIGHT_GRAY);
+        panel2.setBackground(Color.BLACK);
         GridBagConstraints c = new GridBagConstraints();
-
+        b.insets = new Insets(5, 5, 5, 5);
         c.gridx = 0;
         c.gridy = 0;
 
-        // panel2.add(imagen, c);
+        panel2.add(imagen, c);
         a.gridx = 5;
         a.gridy = 5;
-
         panel.add(panel3, a);
         panel3.setLayout(new GridBagLayout());
-        panel3.setBackground(Color.red);
+
         GridBagConstraints d = new GridBagConstraints();
-        panel3.setBackground(Color.BLUE);
+        d.insets = new Insets(15, 10, 15, 10);
 
         d.gridx = 0;
         d.gridy = 0;
         B = new JButton(" Seleccionar");
+
         panel3.add(area, d);
-           d.gridx = 0;
+
+        d.gridx = 0;
         d.gridy = 5;
         panel3.add(B, d);
-          d.insets = new Insets(30, 15, 30, 15);
-        
-          
+        d.insets = new Insets(30, 15, 30, 15);
+
         B.addActionListener(new ActionListener() {
             @Override
 
@@ -127,25 +113,23 @@ public class Lista extends JFrame {
                 int z = lista1(lista.getSelectedIndex());
 
             }
-            
+
             private int lista1(int z) {
                 if (z == 0) {
-                    area.setText("cantante de salsa  ");
+                    area.setText("el melon es sabroso ");
 
-                    System.out.println(imagen1);
-
+                    imagen.setIcon(new ImageIcon("C:\\Users\\ISTLOJA_03\\Pictures\\melon.jpg"));
 
                 }
-                if (z== 1) {
+                if (z == 1) {
 
-                    area.setText("cantante de musica urbana  ");
-                    System.out.println(imagen2);
-
+                    area.setText("la naranja es buena  en vitamina c  ");
+                    imagen.setIcon(new ImageIcon("C:\\Users\\ISTLOJA_03\\Pictures\\naranja.jpg"));
 
                 }
                 if (z == 2) {
-                    area.setText("es una mujer talentosa");
-                    System.out.println(imagen3);
+                    area.setText("la uva es buena para hacer vino");
+                    imagen.setIcon(new ImageIcon("C:\\Users\\ISTLOJA_03\\Pictures\\uva.jpg"));
 
                 }
 
@@ -153,10 +137,11 @@ public class Lista extends JFrame {
             }
 
         });
-   
+
     }
+
     public static void main(String[] args) {
-         
-        Lista o = new Lista();
+
+        Lista z = new Lista();
     }
 }

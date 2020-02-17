@@ -60,7 +60,7 @@ public class Panel extends JFrame {
         panel.setLayout(new GridBagLayout());
         GridBagConstraints a = new GridBagConstraints();
 //primer
-      
+        a.insets = new Insets(15, 10, 15, 10);
         a.gridx = 0;
         a.gridy = 0;
         panel.add(panel1, a);
