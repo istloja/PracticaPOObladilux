@@ -27,7 +27,7 @@ public class Boleto {
         double a=0;
        
         if(descuento=="menor"){
-            a=precio*m;
+            a=precio*50/100;
             
         }else if(descuento=="fumador"){
             a=precio*f;
