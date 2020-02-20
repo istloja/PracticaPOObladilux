@@ -13,10 +13,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import static jdk.nashorn.tools.ShellFunctions.input;
 
 /**
  *
@@ -29,9 +32,14 @@ public class Random extends JFrame {
     JPanel panel2 = new JPanel();
     JPanel panel3 = new JPanel();
     JList lista = new JList();
+    JTextField text = new JTextField(10);
+    JFormattedTextField text1 = new JFormattedTextField(new Integer(3));
+    JFormattedTextField text2 = new JFormattedTextField();
 
     JTextArea area = new JTextArea();
     JButton B = new JButton(">");
+    
+     JTextArea ar = new JTextArea();
 
     public Random() {
         super("Aleratorio");
@@ -44,6 +52,7 @@ public class Random extends JFrame {
     }
 
     public void componentes() {
+        text2.setValue(new Integer(2));
         getContentPane().add(panel);
         panel.setBackground(Color.pink);
         panel.setLayout(new GridBagLayout());
@@ -72,9 +81,16 @@ public class Random extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
         b.insets = new Insets(5, 5, 5, 5);
         c.gridx = 0;
-        c.gridy = 0;
+        c.gridy = 2;
 
         panel2.add(B, c);
+
+        c.gridx = 0;
+        c.gridy = 0;
+        panel2.add(text2, c);
+        c.gridx = 0;
+        c.gridy = 4;
+        panel2.add(ar, c);
 
         a.gridx = 4;
         a.gridy = 0;
@@ -87,35 +103,50 @@ public class Random extends JFrame {
         d.gridx = 0;
         d.gridy = 0;
         panel3.add(area, d);
-         B.addActionListener(new ActionListener() {
+        B.addActionListener(new ActionListener() {
             @Override
 
             public void actionPerformed(ActionEvent e) {
                 int z = lista1(lista.getSelectedIndex());
 
             }
-             private int lista1(int z) {
-               
-         int a;
-        a = ThreadLocalRandom.current().nextInt(0, 4);
-                 
-                 
- area.setText(nombres[a]);
-			
+
+            public int lista1(int z) {
+
+                Integer valor;
+                valor = (Integer) text2.getValue();
+
+                int i = 1;
+int al=valor;
+                while (true) {
+                    
+                    int a;
+                    
+                  a = ThreadLocalRandom.current().nextInt(0, nombres.length);
+                    if (i < al){
+                    
+
+                    area.setText(nombres[a]+i);
+                          i++;
+                   }
                 
+
+                    if (i == al) {
+                        break;
+                    }
+
+                }
                 
 
-                 return 0;
-             }
-         });
-             
-             }
+//                
+                return 0;
+            }
+        });
 
+    }
 
-    
     public static void main(String[] args) {
 
         Random z = new Random();
     }
 }
-
