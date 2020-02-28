@@ -38,8 +38,9 @@ public class Random extends JFrame {
 
     JTextArea area = new JTextArea();
     JButton B = new JButton(">");
-    
-     JTextArea ar = new JTextArea();
+
+    JTextArea ar = new JTextArea();
+    JList lista1 = new JList();
 
     public Random() {
         super("Aleratorio");
@@ -102,7 +103,7 @@ public class Random extends JFrame {
 
         d.gridx = 0;
         d.gridy = 0;
-        panel3.add(area, d);
+        panel3.add(lista1, d);
         B.addActionListener(new ActionListener() {
             @Override
 
@@ -113,36 +114,59 @@ public class Random extends JFrame {
 
             public int lista1(int z) {
 
-                Integer valor;
-                valor = (Integer) text2.getValue();
-
-                int i = 1;
-int al=valor;
-                while (true) {
-                    
-                    int a;
-                    
-                  a = ThreadLocalRandom.current().nextInt(0, nombres.length);
-                    if (i < al){
-                    
-
-                    area.setText(nombres[a]+i);
-                          i++;
-                   }
-                
-
-                    if (i == al) {
-                        break;
-                    }
-
-                }
-                
-
-//                
+                aleatorio();
+                  
+            
                 return 0;
             }
         });
 
+    }
+
+    public void aleatorio() {
+        String nombres[] = {"Pedro", "Angel", "Manuel", "Vicente"};
+       // String nombres2[] = { nombres[a]};
+         lista = new JList(nombres);
+
+       
+
+        Integer valor;
+        valor = (Integer) text2.getValue();
+
+        int i = 1;
+        int al = valor;
+        while (i <= al) {
+            int a;
+            a = ThreadLocalRandom.current().nextInt(0, nombres.length);
+            
+            
+            
+            
+            String nombres2[] = { nombres[a]};
+            if(i==al){
+                   lista1.setListData(nombres2);
+            }
+
+           
+            
+            
+         
+            
+                     
+          
+           
+          // lista1.setListData(nombres2);
+         
+
+         
+                
+            //System.out.println(nombres.length);
+                //  lista = new JList(nombres);
+            i++;
+
+        }
+
+//                
     }
 
     public static void main(String[] args) {
