@@ -5,36 +5,35 @@
  */
 package BaseDatos;
 
+import java.util.Date;
+
 /**
  *
  * @author SOFT06
  */
 public class Estudiante {
-   
-    private String nombre;
-    private String  apellido;
-    private String fechaNacimiento;
-    private String correo;
-    private String telefono;
 
-    public Estudiante(String nombre, String apellido, String fechaNacimiento, String correo, String telefono) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.correo = correo;
-        this.telefono = telefono;
-    }
+    private String dni;
+    private String nombre;
+    private String apellido;
+    private int edad;
+    private Date F_nacimiento;
+    private String correo;
+    private String Telefono;
 
     public Estudiante() {
     }
-    
 
-    public String getNombre() {
-        return nombre;
+    public Estudiante(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getApellido() {
@@ -45,12 +44,38 @@ public class Estudiante {
         this.apellido = apellido;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+    public Estudiante(String dni, String nombre, String apellido, int edad, Date F_nacimiento, String correo, String Telefono) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.F_nacimiento = F_nacimiento;
+        this.correo = correo;
+        this.Telefono = Telefono;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public Date getF_nacimiento() {
+        return F_nacimiento;
+    }
+
+    public void setF_nacimiento(Date F_nacimiento) {
+        this.F_nacimiento = F_nacimiento;
     }
 
     public String getCorreo() {
@@ -62,18 +87,17 @@ public class Estudiante {
     }
 
     public String getTelefono() {
-        return telefono;
+        return Telefono;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefono(String Telefono) {
+        this.Telefono = Telefono;
     }
 
     @Override
     public String toString() {
-        return "Estudiante{" + "nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento=" + fechaNacimiento + ", correo=" + correo + ", telefono=" + telefono + '}';
+        return "Estudiante{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", F_nacimiento=" + F_nacimiento + ", correo=" + correo + ", Telefono=" + Telefono + '}';
     }
-    
-    
-    }
+
+}
 
